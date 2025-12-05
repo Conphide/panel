@@ -1,16 +1,16 @@
 const colors = require('tailwindcss/colors');
 
 const gray = {
-    50: 'hsl(216, 33%, 97%)',
-    100: 'hsl(214, 15%, 91%)',
-    200: 'hsl(210, 16%, 82%)',
-    300: 'hsl(211, 13%, 65%)',
-    400: 'hsl(211, 10%, 53%)',
-    500: 'hsl(211, 12%, 43%)',
-    600: 'hsl(209, 14%, 37%)',
-    700: 'hsl(209, 18%, 30%)',
-    800: 'hsl(209, 20%, 25%)',
-    900: 'hsl(210, 24%, 16%)',
+    50: '#f0faff',
+    100: '#cceeff',
+    200: '#99ddff',
+    300: '#55bbf0',
+    400: '#2299dd',
+    500: '#0077be',
+    600: '#005588',
+    700: '#1a2639', // Dark blue-grey
+    800: '#111825', // Darker
+    900: '#0a0e14', // Almost black
 };
 
 module.exports = {
@@ -20,16 +20,22 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                header: ['"IBM Plex Sans"', '"Roboto"', 'system-ui', 'sans-serif'],
+                header: ['"Orbitron"', 'sans-serif'],
+                sans: ['"Rajdhani"', '"IBM Plex Sans"', 'system-ui', 'sans-serif'],
             },
             colors: {
-                black: '#131a20',
-                // "primary" and "neutral" are deprecated, prefer the use of "blue" and "gray"
-                // in new code.
-                primary: colors.blue,
+                black: '#05070a',
+                primary: {
+                    ...colors.cyan,
+                    400: '#00e5ff',
+                    500: '#00b8d4',
+                    600: '#0091a8',
+                },
                 gray: gray,
-                neutral: gray,
+                neutral: gray, // Remap neutral to our new dark tech palette
                 cyan: colors.cyan,
+                "exodus-cyan": "#00f3ff",
+                "exodus-green": "#0aff0a",
             },
             fontSize: {
                 '2xs': '0.625rem',
@@ -40,6 +46,11 @@ module.exports = {
             borderColor: theme => ({
                 default: theme('colors.neutral.400', 'currentColor'),
             }),
+            boxShadow: {
+                'neon-cyan': '0 0 5px theme("colors.exodus-cyan"), 0 0 10px theme("colors.exodus-cyan")',
+                'neon-green': '0 0 5px theme("colors.exodus-green"), 0 0 10px theme("colors.exodus-green")',
+                'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            }
         },
     },
     plugins: [
