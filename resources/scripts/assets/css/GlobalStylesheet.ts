@@ -3,16 +3,18 @@ import { createGlobalStyle } from 'styled-components/macro';
 
 export default createGlobalStyle`
     body {
-        ${tw`font-sans bg-neutral-800 text-neutral-200`};
-        letter-spacing: 0.015em;
+        ${tw`font-sans bg-neutral-900 text-neutral-200`};
+        letter-spacing: 0.05em;
+        background-image: radial-gradient(circle at 50% 50%, #111825 0%, #0a0e14 100%);
     }
 
     h1, h2, h3, h4, h5, h6 {
-        ${tw`font-medium tracking-normal font-header`};
+        ${tw`font-bold tracking-wide font-header text-exodus-cyan uppercase`};
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
     }
 
     p {
-        ${tw`text-neutral-200 leading-snug font-sans`};
+        ${tw`text-neutral-300 leading-relaxed font-sans`};
     }
 
     form {
@@ -33,31 +35,25 @@ export default createGlobalStyle`
         -moz-appearance: textfield !important;
     }
 
+    /* Selection Color */
+    ::selection {
+        ${tw`bg-exodus-cyan text-black`};
+    }
+
     /* Scroll Bar Style */
     ::-webkit-scrollbar {
         background: none;
-        width: 16px;
-        height: 16px;
+        width: 8px;
+        height: 8px;
     }
 
     ::-webkit-scrollbar-thumb {
-        border: solid 0 rgb(0 0 0 / 0%);
-        border-right-width: 4px;
-        border-left-width: 4px;
-        -webkit-border-radius: 9px 4px;
-        -webkit-box-shadow: inset 0 0 0 1px hsl(211, 10%, 53%), inset 0 0 0 4px hsl(209deg 18% 30%);
+        ${tw`bg-exodus-cyan rounded-full`};
+        box-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
     }
 
-    ::-webkit-scrollbar-track-piece {
-        margin: 4px 0;
-    }
-
-    ::-webkit-scrollbar-thumb:horizontal {
-        border-right-width: 0;
-        border-left-width: 0;
-        border-top-width: 4px;
-        border-bottom-width: 4px;
-        -webkit-border-radius: 4px 9px;
+    ::-webkit-scrollbar-track {
+        ${tw`bg-neutral-800`};
     }
 
     ::-webkit-scrollbar-corner {
